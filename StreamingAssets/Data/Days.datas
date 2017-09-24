@@ -1,0 +1,159 @@
+//morning events
+RULE MorningEvent2, MorningEvent
+Requirements
+	Day == 2
+Data
+	MorningEvent2
+
+DATA MorningEvent2
+"
+ASD
+"
+
+//night events
+RULE NightEvent1, NightEvent
+Requirements
+	Day == 1
+Data
+	NightEvent1
+
+DATA NightEvent1
+"
+The sun is about to set, not that #Player.Name# can see much of it through the lone window slit.
+"
+
+DATA NightEventChoice
+"
+{"Time for some Z's.":
+"Bed time!":
+"Better sleep on it.":
+"Tomorrow's another day."}
+"
+	
+//work start events
+RULE WorkEventMorning1, WorkEvent
+Requirements
+	Time == 1
+Data
+	WorkEventMorning1
+	
+RULE WorkEventMorning2, WorkEvent
+Requirements
+	Time == 2
+Data
+	WorkEventMorning2
+
+RULE WorkEventEvening1, WorkEvent
+Requirements
+	Time == 4
+Data
+	WorkEventEvening1
+	
+RULE WorkEventEvening1Day1, WorkEvent
+Requirements
+	Time == 4
+	Day == 1
+Data
+	WorkEventEvening1Day1
+	
+RULE WorkEventEvening2, WorkEvent
+Requirements
+	Time == 5
+Data
+	WorkEventEvening2
+	
+DATA WorkEventEvening1Day1
+"
+The place is a mess. Countless shelves and tables full of books, vials, jars and many an apparatus. This will take some time to cleanup. #Player.Name# reckons it is best to:
+"
+	
+DATA WorkEventMorning1
+"
+Morning work.
+
+#Player.Name# reckons it is best to:
+"	
+
+DATA WorkEventMorning2
+"
+There's still some time before midday.
+
+#Player.Name# reckons it is best to:
+"
+
+DATA WorkEventEvening1
+"
+Evening work.
+
+#Player.Name# reckons it is best to:
+"	
+
+DATA WorkEventEvening2
+"
+There's still some time before sunset.
+
+#Player.Name# reckons it is best to:
+"
+
+//actions
+RULE WorkAction1A, WorkAction_Cleanup
+Requirements
+	Day == 1
+	CleanupDone == false
+Data
+	WorkAction1A
+
+RULE WorkAction1B, WorkAction_Cleanup
+Requirements
+	Day > 1
+	CleanupDone == false
+Data
+	WorkAction1B
+	
+RULE WorkAction2, WorkAction_Rest
+Requirements
+	Day == 1
+Data
+	WorkAction2
+	
+RULE WorkAction3, WorkAction_Inventory
+Requirements
+	Day > 1
+	InventoryDone == false
+Data
+	WorkAction3
+
+RULE WorkAction4, WorkAction_GoOutSide
+Requirements
+	Day > 1
+Data
+	WorkAction4
+
+DATA WorkAction1A
+"Indeed, clean it all up."
+
+DATA WorkAction1B
+"Clean up the study."
+
+DATA WorkAction2
+"Rest."
+
+DATA WorkAction3
+"Take inventory."
+
+DATA WorkAction4
+"Go outside for the morning."
+
+DATA WorkAction_CleanupEffect
+"
+{Day > 1 ?
+"The study is in a sad state of disorganization. Each shelf packed full of sundry items with seemingly no rhyme or reason." : ""}
+
+It took a long while, but in the end H managed to sort all the items by type. Books in one shelf, raw materials in another, tables relatively clean, all the crates opened and emptied. It is best to have everything visible. Going through all this material is a whole other task.
+"
+
+DATA WorkAction_RestEffect
+"
+The trip was long and rough. Better play it safe and rest.
+Besides it is the first evening. There is no hurry.
+"

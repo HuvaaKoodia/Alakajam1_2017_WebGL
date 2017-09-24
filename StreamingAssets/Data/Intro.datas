@@ -1,0 +1,150 @@
+RULE Intro1, Intro
+Requirements
+Index = 1
+Data
+Intro1
+
+RULE Intro2, Intro
+Requirements
+Index = 2
+Data
+Intro2
+
+RULE Intro3, Intro
+Requirements
+Index = 3
+Data
+Intro3
+
+RULE Intro4, Intro
+Requirements
+Index = 4
+Data
+Intro4
+
+RULE Intro5, Intro
+Requirements
+Index = 5
+Data
+Intro5
+
+RULE Intro6, Intro
+Requirements
+Index = 6
+Data
+Intro6
+
+RULE Intro7, Intro
+Requirements
+Index = 7
+Data
+Intro7
+
+RULE Intro8, Intro
+Requirements
+Index = 8
+Data
+Intro8
+
+
+RULE Intro9, Intro
+Requirements
+Index = 9
+Data
+Intro9
+
+
+DATA Intro1
+"
+Some days ago #Player.Name received a letter from the #Location.Name Monastery. Brother #Friend.Name#, a school mate from the distant past, writes of an opportunity to spend a whole week at the scenic, his words, site amongst the very best nature has to offer. Of course there is a catch: a job appraising some rather interesting, his words again, items late brother #Alchemist.Name left behind. 
+
+#Friend.Name concludes with vague promises of a separate venture as well. 
+"
+
+DATA Intro2
+"
+Mystery has always intrigued #Player.Name#. There is a reason he ended up as a procurer of curiosities for local shoppes. Chemistry, a dear hobby, has the same draw, exploring what is possible with the matter our world consists of. #Player.Name# decides to take the offer as he is due for a vacation anyway.
+"
+
+DATA Intro3
+"
+The trip to #Location.Name# has never been nice. The roads are even worse off than the last time #Player.Name travelled in this direction years ago. Nature is as pleasant as before though. Summer in the city has its perks, but this is something else.
+
+#Friend.Name# is already at the gate waiting for #Player.Name#.
+"
+
+DATA Intro4
+"\"Welcome, I'm ever so glad to see you here. Let us talk in the garden. Pretty isn't it.\"
+
+It sure is. The monks take good care of their lot.
+"
+
+DATA Intro5
+"\"So #Alchemist.Name#, may he rest in peace, left much behind. A study full of assets most intriguing for he in his late years had taken up the pursuit of Alchemy,\" #Friend.Name stresses the last word now gauging #Player.Name#'s reaction."
+
+DATA Intro5C1
+"Raise an eyebrow"
+
+DATA Intro5C2
+"Keep a straight face"
+
+DATA Intro5C3
+"Scowl"
+
+DATA Intro6
+"
+{ChoiceIndex == 0 ? "\"I knew that would pique your interest\", #Friend.Name# grins, " : "{ChoiceIndex == 2 ? "#Friend.Name# smiles, " : ""}"}\"The assets need to be evaluated, an easy enough task for someone with your background, but that is not all. You see...\" #Friend.Name# lowers his tone, \"...for me the appraisal is not that important. What if he was onto something, alchemically speaking?\"
+"
+
+DATA Intro6C1
+"Don't be silly."
+
+DATA Intro6C2
+"I do dabble in chemistry, but these are two very different things."
+
+DATA Intro6C3
+"Go on."
+
+DATA Intro7
+"
+{ChoiceIndex == 0 ? "\"I'm not fooling around, my friend,\" M frowns, \"Recently #Alchemist.Name#" : {ChoiceIndex == 1 ? "\"Oh, so very different or are they? That is what #Alchemist.Name# always said and recently he" : "\"Recently #Alchemist.Name#"}} talked about the topic in detail with much more fervour than before. I'd advice you to look into his work. As a chemist you might even learn something from it.\""
+"
+
+DATA Intro7C1
+"I doubt that."
+DATA Intro7C2
+"We'll see."
+
+DATA Intro8
+"
+\"Lastly, you only have a week as the Abbot wishes to have nothing to do with the laboratory. He would have gotten rid of it all had I not poised the question of possible monetary value. Even we have to care about wealth occasionally; the winter is coming and repairs need to be done.\"
+
+How does it sound to you?\"
+"
+
+DATA Intro8C1
+"This is what I signed up for."
+
+DATA Intro8C1.1
+"That's the spirit. I'll show you the study."
+
+DATA Intro8C2
+"I'll see what I can do. No promises on the alchemy front."
+
+DATA Intro8C2.1
+"Very well. I'll show you the study."
+
+DATA Intro8C3
+"I see. It is a double job then. Not a lot of time for nature and rest."
+
+DATA Intro8C3.1
+"
+\"It is not all work, I promise. We'll take Wednessday off at least. It is midsummer's day, an event worth partaking around here. I won't force your hand either, take your time. Officially you are here only to evaluate the equipment so remember that.\", #Friend.Name winks.
+"
+
+DATA Intro9
+"
+The laboratory is located in the main building, down the stairs in the cellars. \"Your bed is in the room to the right. I'll tell you about upcoming events tomorrow. Good night.\" #Friend.Name bids farewell with a strange gesture, possibly local to the brotherhood, and walks off.
+
+The door to the laboratory creaks loudly.
+"
