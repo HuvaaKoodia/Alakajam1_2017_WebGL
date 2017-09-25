@@ -63,24 +63,24 @@ Some days ago #Player.Name received a letter from the #Location.Name Monastery. 
 
 DATA Intro2
 "
-Mystery has always intrigued #Player.Name#. There is a reason he ended up as a procurer of curiosities for local shoppes. Chemistry, a dear hobby, has the same draw, exploring what is possible with the matter our world consists of. #Player.Name# decides to take the offer as he is due for a vacation anyway.
+Mystery has always intrigued #Player.Name#. There is a reason he ended up as a procurer of curiosities for local shoppes. Chemistry, a dear hobby, likewise has the same draw, exploring what is possible with the matter our world consists of. #Player.Name# decides to take the offer as he is due for a vacation anyway.
 "
 
 DATA Intro3
 "
-The trip to #Location.Name# has never been nice. The roads are even worse off than the last time #Player.Name travelled in this direction years ago. Nature is as pleasant as before though. Summer in the city has its perks, but this is something else.
+The trip to #Location.Name# has never been pleasant. The roads are even worse off than the last time #Player.Name travelled in this direction years ago. Nature is as pleasant as before though. Summer in the city has its perks, but this is something else.
 
-#Friend.Name# is already at the gate waiting for #Player.Name#.
+#Friend.Name# is already at the gate waiting when #Player.Name# arrives.
 "
 
 DATA Intro4
-"\"Welcome, I'm ever so glad to see you here. Let us talk in the garden. Pretty isn't it.\"
+"\"Welcome, I'm ever so glad to see you here. Let us talk in the garden; pretty isn't it.\"
 
 It sure is. The monks take good care of their lot.
 "
 
 DATA Intro5
-"\"So #Alchemist.Name#, may he rest in peace, left much behind. A study full of assets most intriguing for he in his late years had taken up the pursuit of Alchemy,\" #Friend.Name stresses the last word now gauging #Player.Name#'s reaction."
+"\"So, #Alchemist.Name#, may he rest in peace, left much behind. A study full of assets most intriguing for he in his late years had taken up the pursuit of Alchemy,\" #Friend.Name stresses the last word now gauging #Player.Name#'s reaction."
 
 DATA Intro5C1
 "Raise an eyebrow"
@@ -107,7 +107,7 @@ DATA Intro6C3
 
 DATA Intro7
 "
-{ChoiceIndex == 0 ? "\"I'm not fooling around, my friend,\" M frowns, \"Recently #Alchemist.Name#" : {ChoiceIndex == 1 ? "\"Oh, so very different or are they? That is what #Alchemist.Name# always said and recently he" : "\"Recently #Alchemist.Name#"}} talked about the topic in detail with much more fervour than before. I'd advice you to look into his work. As a chemist you might even learn something from it.\""
+{ChoiceIndex == 0 ? "\"I'm not fooling around, my friend,\" #Friend.Name# frowns, \"Recently #Alchemist.Name#" : {ChoiceIndex == 1 ? "\"Oh, so very different or are they? That is what #Alchemist.Name# always said and recently he" : "\"Recently #Alchemist.Name#"}} talked about the topic in detail with much more fervour than before. I'd advice you to look into his work. As a chemist you might even learn something from it.\""
 "
 
 DATA Intro7C1
