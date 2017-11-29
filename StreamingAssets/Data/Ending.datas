@@ -1,0 +1,238 @@
+DATA Ending1
+"
+#Friend.Name and the abbot are waiting for #Player.Name at the dinner table. #Player.Name helps himself to some soup before sitting down.
+"
+
+DATA Ending2
+"
+The abbot speaks: \"So, it is the last day for you in our little monastery. I hope you found your stay pleasant enough. Then there is the question of the appraisal.\"
+"
+
+RULE Ending2C1, Ending2C1
+Requirements
+	AppraisalIndex > 0
+Data Ending2C1
+
+DATA Ending2C1
+"Hand over the report"
+
+DATA Ending2C2
+"Wait, say nothing"
+
+DATA Ending3
+"
+#Friend.Name and the abbot glance at each other. \"You did write a report right?\" #Friend.Name asks.
+"
+
+RULE Ending3C1, Ending3C1
+Requirements
+	AppraisalIndex > 0
+Data Ending3C1
+
+DATA Ending3C1
+"Hand it over."
+
+//report ending
+
+DATA Ending5
+"
+The abbot takes the report and gives it a read.
+
+@ReportAnalysis@
+"
+
+RULE ReportAnalysis1, ReportAnalysis
+Requirements
+	AppraisalIndex == 1
+Data
+	ReportAnalysis1
+
+RULE ReportAnalysis3, ReportAnalysis
+Requirements
+	AppraisalIndex > 1
+Data
+	ReportAnalysis3
+	
+DATA ReportAnalysis1
+"
+\"Isn't this a bit short? Hmm, the books are valuable. I take it the rest is worthless? Maybe this will do. Getting that roof fixed would certainly be worth the trouble of selling these items. Thank you.\" The abbot nods and leaves to attend his duties.
+"
+
+DATA ReportAnalysis3
+"
+\"{AppraisalIndex == 2 ?"No word on the materials? Hmm, they must not have been worth much." : "Everything seems to be in order."} The books are valuable? Maybe this delay will even pay off. Getting that roof fixed would certainly be worth the trouble of selling these items. Thank you.\" The abbot nods with a curt smile and leaves to attend his duties.
+"
+
+DATA Ending6
+"
+{AppraisalIndex == 1 ?
+"
+\"You are lucky that the abbot is a busy man, getting away with such a rushed job,\" #Friend.Name looks visibly upset. \"You did concentrate on the other business then?\"
+"
+:
+"
+\"Good job with the assessment,\" #Friend.Name looks pleased. \"You had time for the other business too?\"
+"
+}
+"
+
+RULE EndingAlchemy0, EndingAlchemy0
+Requirements
+	AlchemyIndex < 2
+Data
+	EndingAlchemy0
+
+RULE EndingAlchemy1, EndingAlchemy1
+Requirements
+	AlchemyIndex > 2
+Data
+	EndingAlchemy1
+
+RULE EndingAlchemy2, EndingAlchemy2
+Requirements
+	AlchemyOperationCount >= 2
+Data
+	EndingAlchemy2
+	
+DATA EndingAlchemy0
+"
+Not exactly.
+"
+
+DATA EndingAlchemy0.1
+"
+{AppraisalIndex == 1 ?
+"
+\"You took this more as vacation than work. I'm somewhat dissappointed to be honest, not that there is any point in arguing about it now. Thank you for showing up.\" #Friend.Name is not amused, that much is clear.
+"
+:
+"
+\"It didn't interest you? Fine, I can let that slide. The official work was wrapped up nicely and that is all that matters, Thank you.\" #Friend.Name concludes, a tinge of dissappointment in his voice.
+"
+}
+"
+
+DATA EndingAlchemy1
+"#Alchemist.Name# was a productive man, but unfortunately made no discoveries. At least he wrote none down."
+
+DATA EndingAlchemy2
+"I managed to transform many ingredients experimenting, but gathered no results."
+
+DATA Ending7
+"I was sure of #Alchemist.Name#'s devotion, yet that only goes so far it seems. You did your best."
+
+
+//no report endings
+RULE Ending3C2, Ending3C2
+Requirements
+	AppraisalIndex == 0
+Data Ending3C2
+
+DATA Ending3C2
+"In fact I didn't."
+
+DATA Ending4
+"The abbot lets out a wailing, \"What did you do then?\""
+
+RULE Ending4C1, Ending4C1
+Requirements
+	InventoryDone == true
+Data Ending4C1
+
+RULE Ending4C3, Ending4C3
+Requirements
+	AlchemyIndex > 0
+Data Ending4C3
+
+DATA Ending4C1
+"Oh, I simply memorized it all. Let me write it down this instant."
+
+DATA Ending4C2
+"Relax, I just relaxed."
+
+DATA Ending4C3
+"Studied alchemy."
+
+DATA Ending4C1.1
+"
+#Friend.Name chuckles nervously, a drop of sweat falling down his temple. \"Eh, I forgot to mention that #Player.Name has rather peculiar working habits.\"
+"
+
+DATA Ending4C1.2
+"
+#Player.Name writes down a list of all the items and apparatus in the study, an easy task after spending so much time with them. Coming up with the values is much more tense, no time to think just jotting down numbers. There, not one item missing.
+"
+
+DATA Ending4C1.3
+"
+The abbot snatches the paper and takes a look. \"Well, it is not all bad by the looks of it. Maybe this delay will even pay off. Getting that roof fixed would certainly be worth the trouble of selling these items. Thank you.\" The abbot nods, expressionless and leaves to attend his duties.
+"
+
+DATA Ending4C1.4
+"
+#Friend.Name gives #Player.Name a look of half terror, half relief. \"What on earth went onto you! No matter, it is over now. How did the other side of the business go?\"
+"
+
+RULE Ending4C1.4C0,Ending4C1.4C0
+Requirements
+	AlchemyIndex <= 2
+Data 
+	Ending4C1.4C0
+
+DATA Ending4C1.4C0
+"I didn't really look into it"
+
+DATA Ending4C1.4C0.1
+"
+#Friend.Name suddenly leans forward, \"Now I have to ask: What were you doing?\", and then slumps back down on the chair, \"Never mind, I know the answer to that. I hope you had a nice holiday at least. Good bye!\"
+"
+
+DATA Ending 4C1.4CX.1
+"I was sure of #Alchemist.Name#'s devotion, yet that only goes so far it seems. You did your best. Also fix the numbers now that you have time will you."
+
+DATA Ending 4C1.4CX.2
+"
+It was a quick appraisal, but better than nothing. Doubtful they'll get many interested buyers these days. Maybe an aspiring chemist or a collector of some sort.
+"
+
+DATA Ending4C2.1
+"
+\"Oh. This is what I get for trusting an outsider to handle a simple enough job. #Friend.Name#, I hold you accountable. Cough up an explanation by evening, I don't have time for this now. Good bye!\" 
+
+The abbot gives #Friend.Name a furious glance and storms away.
+"
+
+DATA Ending4C2.2
+"
+#Friend.Name does not look #Player.Name in the eyes. {PlayerToldFriendAboutNoReport ? "His hands curling into fists, knuckles white.\n\"I told you to write the report and you did nothing... Nothing!\nGet out of my sight." : "\"You should have told me yesterday...Go now, I'm already in trouble."}\"
+"
+
+DATA Ending4C3.1
+"
+The abbot's left eye twitches. He slowly turns his head to look at #Friend.Name#, gets up and leaves.
+"
+
+DATA Ending4C3.2
+"
+#Friend.Name does not look #Player.Name in the eyes. \"You really should not have said that... Go now, I'm already in trouble.\"
+"
+
+//epilogue
+
+DATA Epilogue1
+"
+Later that day #Player.Name# embarked on the long trip back to the city. {AlchemyIndex >= 4 ? "This was an experience #Player.Name# will no doubt never forget. Alchemy does not hold a candle to chemistry of course." : ""}{AppraisalIndex == 0 ? 
+"
+\nFeeling rather mixed about laying waste to #Friend.Name#'s expectation so.
+On the flipside it was an enervating vacation. Such is life." : 
+"{AppraisalIndex < 3 ? 
+"
+\nThe Appraisal could have gone better with some more time and effort.
+On the flipside it was an enervating vacation. Such is life." : ""}
+"
+}{AppraisalIndex == 3 ? 
+"
+#Player.Name# can breathe easy, proud of a job well done. {RelaxIndex <= 2 ?"\nOn the flipside it could have been a more relaxing vacation. Such is life." : ""}" : ""}
+
+The end
+"

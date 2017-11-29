@@ -117,13 +117,13 @@ DATA Intro7C2
 
 DATA Intro8
 "
-\"Lastly, you only have a week as the Abbot wishes to have nothing to do with the laboratory. He would have gotten rid of it all had I not poised the question of possible monetary value. Even we have to care about wealth occasionally; the winter is coming and repairs need to be done.\"
+\"Lastly, you only have a week as the abbot wishes to have nothing to do with the laboratory. He would have gotten rid of it all had I not poised the question of possible monetary value. Even we have to care about wealth occasionally; the winter is coming and repairs need to be done.\"
 
-How does it sound to you?\"
+How does this sound to you?\"
 "
 
 DATA Intro8C1
-"This is what I signed up for."
+"It is what I signed up for."
 
 DATA Intro8C1.1
 "That's the spirit. I'll show you the study."
@@ -139,12 +139,12 @@ DATA Intro8C3
 
 DATA Intro8C3.1
 "
-\"It is not all work, I promise. We'll take Wednessday off at least. It is midsummer's day, an event worth partaking around here. I won't force your hand either, take your time. Officially you are here only to evaluate the equipment so remember that.\", #Friend.Name winks.
+\"It is not all work, I promise. We'll take Wednessday off at least. It is midsummer's day, an event worth partaking around here. I won't force your hand either, take your time. Officially you are here only to evaluate the equipment so remember that,\" #Friend.Name winks.
 "
 
 DATA Intro9
 "
-The laboratory is located in the main building, down the stairs in the cellars. \"Your bed is in the room to the right. I'll tell you about upcoming events tomorrow. Good night.\" #Friend.Name bids farewell with a strange gesture, possibly local to the brotherhood, and walks off.
+The laboratory is located in the main building, down the stairs in the cellars. \"Your bed is in the room to the right. We'll talk more tomorrow. Good night.\" #Friend.Name bids farewell with a strange gesture, possibly local to the brotherhood, and walks off.
 
 The door to the laboratory creaks loudly.
 "

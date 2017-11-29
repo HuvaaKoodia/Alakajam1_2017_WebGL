@@ -1,0 +1,128 @@
+RULE WorkAction_Sublimate, WorkAction_Sublimate
+Requirements
+	StudiedBook2Tools
+Data
+	WorkAction_Sublimate
+	
+RULE WorkAction_Distill, WorkAction_Distill
+Requirements
+	StudiedBook2Tools
+Data
+	WorkAction_Distill
+	
+RULE WorkAction_Fusion, WorkAction_Fusion
+Requirements
+	StudiedBook2Tools
+Data
+	WorkAction_Fusion
+
+DATA WorkAction_Sublimate
+"Use furnaces to sublimate matter."
+
+DATA WorkAction_Distill
+"Use alembic to distill matter."
+
+DATA WorkAction_Fusion
+"Use crucible to fuse matter."
+	
+
+DATA FurnaceDescription
+"
+Both furnaces sit snuggly together, build into to the outside wall. Ventilation is handled by hatched exhaust shafts leading out through the wall. A makeshift solution, which must have worked fine as evidenced by the tell-tale signs of heavy usage.
+
+In conjugation with a copper retort, the furnaces can be used to sublimate, i.e purify, certain solid substances.
+"
+
+	
+DATA AlembicDescription
+"
+The laboratory has much glassware to choose from. #Player.Name settles for a rugged looking, clear alembic. The device is basically a still which vaporises matter and separates its liquids from its solids. Vapour escapes the first chamber through a tube and condenses into the receiving container at the other end.
+"
+
+DATA CrucibleDescription
+"
+Nothing more complicated but a porcelain bowl, this container can be heated up to high temperatures and used for mixing substances together.
+"
+
+//options
+
+DATA AlchemyBack
+"Nevermind"
+
+RULE SublimateSulphur, SublimateSulphur
+Requirements
+	HasPureSulphur == false
+Data 
+	SublimateSulphur
+
+DATA SublimateSulphur
+"Sublimate sulphur"
+
+RULE SublimateLead, SublimateLead
+Requirements
+	HasPureLead == false
+Data 
+	SublimateLead
+
+DATA SublimateLead
+"Sublimate lead"
+
+RULE DistillAquaFortis, DistillAquaFortis
+Requirements
+	HasOrangeGas == false
+Data 
+	DistillAquaFortis
+
+DATA DistillAquaFortis
+"Distill aquafortis"
+
+RULE DistillMercury, DistillMercury
+Requirements
+	HasPureMercury == false
+Data 
+	DistillMercury
+
+DATA DistillMercury
+"Distill mercury"
+
+RULE FuseLeadWithAquaFortis, FuseLeadWithAquaFortis
+Requirements
+	HasLeadOxide == false
+Data 
+	FuseLeadWithAquaFortis
+
+DATA FuseLeadWithAquaFortis
+"Dissolve lead with aquafortis"
+
+//reactions
+
+DATA SublimateSulphurReaction
+"
+The intense heat turns sulphur into a visible gas, which when carried away from the heat turns back into powderous sulphur most striking yellow.
+"
+
+
+DATA SublimateLeadReaction
+"
+The intense heat turns lead into a gas, which after leaving the horrid heat transforms into lead powder near silver in appearance.
+"
+
+DATA DistillAquaFortisReaction
+"
+Bubbling up the pipe, the receiver is filled with a foul smelling, orange gas. The by-product being plain old water.
+"
+
+DATA DistillMercuryReaction
+"
+A dangerous operation, due to the poisonous nature of the substance. Making sure the joints are air tight #Player.Name starts pouring in the beautiful, but deadly liquid and quickly seals the alembic. 
+
+Ever so slowly the fluid starts to boil and ripple like an ocean of living metal. The invisible gas condenses back to mercury in the receiver, a liquid much brighter to the eye than the impure base material.
+"
+
+DATA FuseLeadWithAquaFortisReaction
+"
+The hypothesis: lead will dissolve away, eaten by the strong, acidic aquafortis. 
+Reality: instead of utter destruction the lump of lead transmuted into light orange powder, lead oxide.
+
+#Player.Name finds the result rather perplexing and is forced to speculate that this batch of aquafortis must be lesser in potency than those he has seen used before.
+"

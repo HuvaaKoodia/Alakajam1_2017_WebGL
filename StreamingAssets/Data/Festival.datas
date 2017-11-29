@@ -1,0 +1,71 @@
+DATA FestivalMorning1
+"
+The field next to the garden had been propped up with tables and even a stage{SeenMonksWorkingOutside ? " This is what the monks were working on earlier, Makes sense now" : ""}. Surprising amount of decoration for such ascetic people: banners, small statues and even folded paper symbols of summer.
+"
+
+DATA FestivalMorning2
+"
+It wasn't all monks. Many people had arrived from nearby towns some dressed in colorful attire, probably traditional garments. #Player.Name# didn't dare to talk to any of them as they seemed to be able to spot a city dweller from a distance. Scornful looks and muttering were the norm. 
+
+The monks sang many songs, in latin of course.
+"
+
+DATA FestivalMiddayMeal1
+"
+The feast was the highlight of the event. For once the monks, or the townies it later occurred to #Player.Name#, had cooked up a meal worth talking about. The bounty of nature well represented: bean stew, cabbage rolls, apple pies and a sauce most delicious the taste of which eludes words. No meat, but that was to be expected.
+
+Midday sun burning hot, the festival would continue long into the evening. #Player.Name chooses to:
+"
+
+DATA FestivalMiddayMeal1C1
+"Stay for the evening. It is a guaranteed good time."
+
+DATA FestivalMiddayMeal1C2
+"Go to work. Better not waste the whole day."
+
+DATA FestivalMiddayMeal2
+"
+Hunger forces #Player.Name topside. He emerges from the dim cellar into the bright day, eyes adjusting. Colorful attire and banners; people talking, laughing and singing. Quite the spectacle in all, not that it compares to nature's beauty. And then there's the food; the reason to be alive at this very moment. A true blessing after three days of bread and soup. 
+
+#Player.Name could not name a single dish thinking about it afterwards. It was delicious and that is the only memory that matters.
+"
+
+DATA FestivalMiddayMeal2C1
+"Stay for the evening."
+
+DATA FestivalMiddayMeal2C2
+"Go back to work."
+
+DATA FestivalEvening1
+"
+There were many games and quizzes. #Player.Name took part in a few activities: throwing a ball trying to hit targets for points and a quiz about animal and plant names. #Player.Name did pretty well at the quiz at least. 
+"
+
+DATA FestivalEvening2
+"
+The activities seemed to have loosened up the uptight attitudes of the guests and #Player.Name reckoned a little chat would do no harm.
+"
+
+DATA FestivalEvening2C1
+"Talk to a plump man in white and blue."
+DATA FestivalEvening2C2
+"Talk to an old woman in grey and black."
+DATA FestivalEvening2C3
+"Talk to a young lady in green and yellow."
+DATA FestivalEvening2C4
+"Talk to a middle aged man in crimson red."
+
+DATA FestivalEvening2C1.1
+"The discussion was a welcome diversion, yet utterly devoid of meaning."
+
+DATA FestivalEvening3
+"With the sun drawing ever so close to the horizon, people start packing up and leaving. 
+
+The event is over, time to retreat to the dark, dank cellar again."
+
+DATA FestivalEveningShort
+"
+There were many games and quizzes. #Player.Name chose to look from the sidelines. The town people, where else could the guests be from, seemed to have this instictive ill feeling towards city folk.
+
+Even then #Player.Name had a relatively interesting time witnessing this countryside event.
+"

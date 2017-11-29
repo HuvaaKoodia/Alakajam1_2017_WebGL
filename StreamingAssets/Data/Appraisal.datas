@@ -1,0 +1,68 @@
+RULE WorkAction_Appraise1, WorkAction_Appraise
+Requirements
+	InventoryDone
+	AppraisalIndex == 0
+Data
+	WorkAction_Appraise1
+
+RULE WorkAction_Appraise2, WorkAction_Appraise
+Requirements
+	InventoryDone
+	AppraisalIndex == 1
+Data
+	WorkAction_Appraise2
+	
+RULE WorkAction_Appraise3, WorkAction_Appraise
+Requirements
+	InventoryDone
+	AppraisalIndex == 2
+Data
+	WorkAction_Appraise3
+	
+DATA WorkAction_Appraise1
+"Start appraising the study."
+
+DATA WorkAction_Appraise2
+"Continue appraising the study."
+
+DATA WorkAction_Appraise3
+"Finish appraising the study."
+
+RULE Appraisal1, WorkAction_AppraiseEffect
+Requirements
+	AppraisalIndex == 0
+Data
+	Appraisal1
+
+RULE Appraisal2, WorkAction_AppraiseEffect
+Requirements
+	AppraisalIndex == 1
+Data
+	Appraisal2
+	
+RULE Appraisal3, WorkAction_AppraiseEffect
+Requirements
+	AppraisalIndex == 2
+Data
+	Appraisal3
+
+DATA Appraisal1
+"
+The books must be the most valuable items in here. #Player.Name# goes over their general condition, researches dates and authors, eventually landing a few hits. Unfortunately #Alchemist.Name# didn't exactly take good care of most of them. Writing in the margins is a usual offense while torn pages and splashes are not rare either.
+
+Not a terrible collection, might net a considerable sum with the right buyers.
+"
+
+DATA Appraisal2
+"
+Next on the list is the equipment. Generally speaking such well-used tools are not worth much, but the way these devices are put together does raise a few hopes. Sure, someone might buy them for practical reasons too, but the growin market for weird and wonderful items as decoration is a more viable option #Player.Name dares to venture.
+
+The colorful alembics and stills have the most potential, yet even then the evaluation is more of a wild quess than a sure shot.
+"
+
+DATA Appraisal3
+"
+Lastly there are the materials and substances. On their own they are not going to net much at all. There are valuable minerals, gold for instance, but only in very small quantities.
+
+A chemist might buy them for cheap or someone might be interested to procure a few jars as unusual decor. There is little hope for selling big here.
+"

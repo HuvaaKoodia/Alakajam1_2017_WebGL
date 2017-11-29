@@ -1,0 +1,211 @@
+
+RULE WorkAction1A, WorkAction_Cleanup
+Requirements
+	Day == 1
+	CleanUpDone == false
+Data
+	WorkAction1A
+
+RULE WorkAction1B, WorkAction_Cleanup
+Requirements
+	Day > 1
+	CleanUpDone == false
+Data
+	WorkAction1B
+	
+RULE WorkAction2, WorkAction_Rest
+Requirements
+	Day == 1
+Data
+	WorkAction2
+	
+RULE WorkAction3, WorkAction_Inventory
+Requirements
+	CleanUpDone == true
+	InventoryDone == false
+Data
+	WorkAction3
+
+RULE WorkAction4, WorkAction_GoOutSide
+Requirements
+	Day > 1
+	Day != 4
+Data
+	WorkAction4
+
+DATA WorkAction1A
+"Indeed, clean it all up."
+
+DATA WorkAction1B
+"Clean up the study."
+
+DATA WorkAction2
+"Rest."
+
+DATA WorkAction3
+"Take inventory."
+
+RULE WorkAction_StudyBook1, WorkAction_StudyBook
+Requirements
+	InventoryDone
+	StudiedBook1Mary = false
+Data 
+	WorkAction_StudyBook
+
+RULE WorkAction_StudyBook2, WorkAction_StudyBook
+Requirements
+	InventoryDone
+	StudiedBook2Tools = false
+Data 
+	WorkAction_StudyBook
+	
+RULE WorkAction_StudyBook3, WorkAction_StudyBook
+Requirements
+	InventoryDone
+	StudiedBook3Magnum = false
+Data 
+	WorkAction_StudyBook
+	
+RULE WorkAction_StudyBook4, WorkAction_StudyBook
+Requirements
+	InventoryDone
+	StudiedBook4Prima = false
+Data 
+	WorkAction_StudyBook
+	
+DATA WorkAction_StudyBook
+"Study a book"
+
+DATA WorkAction_StudyBook2
+"Old and heavy, a description most fitting for the books filling the shelves. There is no way to read through them all, but it seems that #Alchemist.Name# has littered each tome with many notes and scribbles so those are worth a look at least.
+
+To study a book for potential insights will take the whole {Time < 3 ? "morning":"evening"}."
+
+RULE WorkAction_Book1, WorkAction_Book1
+Requirements
+	StudiedBook1Mary = false
+Data 
+	WorkAction_Book1
+
+RULE WorkAction_Book2,WorkAction_Book2
+Requirements
+	StudiedBook2Tools = false
+Data 
+	WorkAction_Book2
+	
+RULE WorkAction_Book3, WorkAction_Book3
+Requirements
+	StudiedBook3Magnum = false
+Data 
+	WorkAction_Book3
+	
+RULE WorkAction_Book4, WorkAction_Book4
+Requirements
+	StudiedBook4Prima = false
+Data 
+	WorkAction_Book4
+
+DATA WorkAction_Book1
+"The collected works of Mary the Jewess"
+
+DATA WorkAction_Book2
+"Tools of alchemy"
+
+DATA WorkAction_Book3
+"Magnum Opus"
+
+DATA WorkAction_Book4
+"Prima material"
+
+DATA WorkAction_Book1Description
+"The name of this collections is somewhat misleading. None of the essays are written by Mary as seemingly her works didn't survive to this day. These are attributed to multiple authors from centuries after Mary's time. Curious.
+
+Nonetheless, the information residing on these pages did interest #Alchemist.Name# enough for him to write two summations and copious notes in the margins. There is much talk of acids; combining male and female metals, whatever that means; and even some plants, such as mandrake, and their properties."
+
+DATA WorkAction_Book2Description
+"
+An illuminating opus on the equipment used in physical alchemy. Detailed pictures and descriptions for all sorts of devices, including those found in the study: Furnace, Crucible and Alembic.
+
+The book also lists the most common alchemical operations done with such apparatus:
+
+<b>Sublimation</b>
+Turning a solid into gas then rapidly cooling to solid again, removes impurities.
+
+<b>Fusion</b>
+Melding multiple materials together.
+
+<b>Distillation</b>
+Separating volatile liquid from matter, thus ending up with solid and liquid by-products. Useful for soft materials, not so much for hard solids such as metals.
+
+#Player.Name has a firm theoretical grasp on the techniques and technology now. Time to put the knowledge into practice?
+"
+
+DATA WorkAction_Book3Description
+"This heavy tome describes one of the great works, the greatest of them all if the author is to be believed, the Philosopher's stone. A gem capable of transmuting matter: turning lead into gold and granting immortality to man, among other uses no doubt.
+
+The writing is dense and in an ancient written form of a language #Player.Name# can barely read even without such obstacles. Luckily #Alchemist.Name# has translated many passages and even created a quick run down of the process.
+
+1. Create or acquire prima matter
+
+2. Disassemble the matter down to dark ashes by heating. A step known as Nigredo.
+
+3. Combine the dark ashes with other substances to form white matter. A step known as Albedo.
+
+4. Combine the white matter with other substances to form yellow matter. A step known as Citrinitas.
+
+5. Form the yellow matter into the red philosopher's stone via an obscure process. A step known as Rubedo. \"A bright red substance combined with a lowly metal yields the stone.\", that translation might be off.
+"
+
+DATA WorkAction_Book4Description
+"
+A reference rich tome concerned in what the so called prima material, from which all the great works start from, really physically is. The quintessence of being, lifeforce, aether from chaos; these mental images are illuminating in vision, but hard to work with.
+
+Throughout the book Prima material is referred to, depending on the source, as:
+
+Philosophical mercury,
+Poison,
+Sulphur of Nature,
+Dew,
+Vinegar,
+Spiritual blood,
+Syrup
+
+#Alchemist.Name# had underlined mercury, sulphur and vinegar in multiple occasions and written a short memo about the others with no hard conclusions. Does that mean he already tried mercury, sulphur and vinegar or are those simply the most potent options? This man and his undocumented experiments!
+
+The book offers many other names less descriptive, more and more nebulous. These are best left to the philosophically minded readers.
+"
+
+//DATA WorkAction_Book5
+//"Material transmutation"
+
+DATA WorkAction4
+"Go outside for the {Time < 3 ? "morning" : "evening"}."
+
+DATA WorkAction_CleanupEffect
+"
+{Day > 1 ?
+"The study is in a sad state of disorganization. Each shelf packed full of sundry items with seemingly no rhyme or reason." : ""}
+
+It took a long while, but in the end #Player.Name# manages to sort all the items by type. Books in one shelf, raw materials in another, tables relatively clean, all the crates opened and emptied. It is best to have everything visible. Evaluating all this material is a whole other task.
+"
+
+DATA WorkAction_RestEffect
+"
+The trip was long and rough. Better play it safe and rest.
+Besides it is the first evening; there is no hurry.
+"
+
+DATA WorkAction_InventoryEffect1
+"
+Out of the many jars some are clearly labelled: mercury, sulphur, lead; and others not at all. #Player.Name# had to figure out which is what based on visual composition and in rare cases the smell. All the toxic materials were labeled, fortunately.
+
+In the end #Player.Name# managed to identify most of the materials present.
+"
+
+//separate text if not interested in alchemy?
+DATA WorkAction_InventoryEffect2
+"
+The apparatus are much harder to get to grips with. There are two furnaces, for different levels of heat as per usual, and a wide array of stills which #Player.Name# is familiar with in theory, but they all seems to be custom made with ample modifications. Sure testing them out would do the trick, yet there hardly is time for that. 
+
+Hopefully #Alchemist.Name# kept instructions at hand, otherwise doing anything productive in here is a doomed venture.
+"

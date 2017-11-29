@@ -1,0 +1,97 @@
+RULE OutsideStartMorning, OutsideEvent
+Requirements
+Time < 3
+Data
+	OutsideStartMorning
+
+RULE OutsideStartEvening, OutsideEvent
+Requirements
+Time > 3
+Data
+	OutsideStartEvening
+
+DATA OutsideStartMorning
+"A beautiful morning.{RainedLastNight ? "Mist in the air from the over night rain." :""} The frogs at the little pond to the south can be heard all the way from the yard. The garden is in full bloom."
+
+DATA OutsideStartEvening
+"The sun is blasting down in full force. The pond is shining south of the monastery. The garden is emiting inviting aroma of flowery goodness."
+
+//DATA
+//"Collect dew as instructed by ..."
+
+DATA OutsideGotoGarden
+"Spend time in the the garden."
+
+DATA OutsideGotoPond
+"Spend time by the pond."
+
+RULE OutsidePondMorning, OutsidePondEvent
+Requirements
+	Time < 3
+Data 
+	OutsidePondMorning
+
+RULE OutsidePondEvening, OutsidePondEvent
+Requirements
+	Time > 3
+Data 
+	OutsidePondEvening
+	
+DATA OutsidePondMorning
+"#Player.Name# spent a relaxing morning at the pond, watching life buzz all around him and enjoying the sunshine.
+
+@BackIndoorsText@
+"
+
+DATA OutsidePondEvening
+"The sun travelled across the sky illuminating the waters with a spectrum of colors throughout the evening. Crickets, frogs and owls provided a soundscape quite like no other.
+
+@BackIndoorsText@
+"
+
+RULE OutsideGardenMorning, OutsideGardenEvent
+Requirements
+	Time < 3
+Data 
+	OutsideGardenMorning
+
+RULE OutsideGardenEvening, OutsideGardenEvent
+Requirements
+	Time > 3
+Data 
+	OutsideGardenEvening
+	
+DATA OutsideGardenMorning
+"#Player.Name# spent the morning at the garden. Monks tending to the plants; watching them work was most relaxing. 
+
+@BackIndoorsText@
+"
+
+DATA OutsideGardenEvening
+"The garden gathers an increasingly eerie atmosphere as the sun sinks closer and closer to the horizon. Shadows playing on the bumpy walls of the monastery; rustling and squeaks let out by the odd rodent rummaging for easy food.
+
+@BackIndoorsText@
+"
+
+DATA BackIndoorsText
+"
+{
+"Back indoors then." :
+"That was that, back indoors." :
+"Time well spent. Back inside he goes."
+}
+"
+
+/*
+{
+	"Harvest mandrake roots. These could be used in an experiment as instructed by Mary Jewess."
+	H carefully unearths a mandrake plant and collects a few roots. The leaves and roots are poisonous so H used a napkin to protect his fingers. They did get dirty from the digging though. Such is life.
+	Some monks tend to the garden. Watching them work is most relaxing. No-one noticed the impromptu digging by the looks of it.
+}
+
+
+{
+	"Try to catch a frog, maybe their life essence can be collected as instructed by ..."
+	*/
+	
+	

@@ -1,0 +1,423 @@
+//morning events
+
+RULE MorningEventGeneric, MorningEvent
+Data
+	MorningEventGeneric
+
+DATA MorningEventGeneric
+"
+Getting up with the usual complaints.
+"
+
+RULE MorningEventDay7, MorningEvent
+Requirements 
+	Day == 7
+Data
+	MorningEventDay7
+
+DATA MorningEventDay7
+"
+Last day in this chilly, uncaring building. The monks mean well, but they really should invest in basic amenities.
+Oh wait...
+"
+
+RULE MorningEventDay3, MorningEvent
+Requirements
+	Day == 3
+Data
+	MorningEventDay3
+
+DATA MorningEventDay2
+"
+#Player.Name# wakes up to a knock on the door. {CleanUpDone ? "Groggy and aching, that clean up sure counted as physical exercise, " : ""}#Player.Name opens it to find #Friend.Name# on the other side.
+"
+
+DATA MorningEventDay2.2
+"
+\"Top of the morning #Player.Name#. I take it you slept well; we take pride in our humble, calm, quiet abode. {CleanUpDone ? "
+
+\"I took a peek at the study. Good work on sorting it out. We didn't dare move anything, thinking it would ruin some grand experiment. How silly of us." : ""}\"
+"
+
+DATA MorningEventDay2.3
+"\"You might have guessed that we monks don't eat breakfast, so I brought you a loaf of bread. Make it last. Dinner is served at midday; I will meet you in the main hall.\"
+
+Gnawing at stale bread #Player.Name# contemplates his next move.
+"
+
+DATA MorningEventDay3
+"
+A restless night. The bed is not very comfortable, so on the positive side getting up is not a problem.// The aching hasn't gone away, that is.
+"
+
+DATA MorningEventDay4
+"
+A knock on the door. #Friend.Name# all smiles, \"Happy midsummer's day to you! Everything is finally ready for the festival. Will you be joining us?\"
+"
+
+DATA MorningEventDay4C1
+"Sure, I'll just finish my \"breakfast\""
+
+DATA MorningEventDay4C1.1
+"\"Put that crust down. There's a feast a brewing.\"
+
+How can you say no to that?
+"
+
+DATA MorningEventDay4C2
+"I'd rather continue working. {AlchemyOperationCount > 0 ? I dare say I'm making progress. : ""}"
+
+DATA MorningEventDay4C2.1
+"{AlchemyOperationCount > 0 ? "\"Oh, interesting. " : "\"Your choice. "}Join us in the evening, if you change your mind.\""
+"
+
+//night events
+RULE NightEvent1, NightEvent
+Requirements
+	Day == 1
+Data
+	NightEvent1
+
+RULE NightEvent2, NightEvent
+Data
+	NightEvent2
+	
+DATA NightEvent1
+"
+The sun is about to set, not that #Player.Name# can see much of it through the lone window slit.
+"
+
+DATA NightEvent2
+"
+The sun has set, #Player.Name# is getting sleepy.
+"
+
+DATA NightEventChoice
+"
+{"Time for some Z's.":
+"Bed time!":
+"Better sleep on it.":
+"Tomorrow's another day."}
+"
+	
+//work start events basic
+RULE WorkEventMorning1, WorkEvent
+Requirements
+	Time == 1
+Data
+	WorkEventMorning1
+	
+RULE WorkEventMorning2, WorkEvent
+Requirements
+	Time == 2
+Data
+	WorkEventMorning2
+
+RULE WorkEventEvening1, WorkEvent
+Requirements
+	Time == 4
+Data
+	WorkEventEvening1
+	
+RULE WorkEventEvening1Day1, WorkEvent
+Requirements
+	Time == 4
+	Day == 1
+Data
+	WorkEventEvening1Day1
+	
+RULE WorkEventEvening2, WorkEvent
+Requirements
+	Time == 5
+Data
+	WorkEventEvening2
+	
+DATA WorkEventEvening1Day1
+"
+The place is a mess. Countless shelves and tables full of books, vials, jars and many an apparatus. This will take some time to cleanup. 
+
+@WorkStatement2@
+"
+DATA WorkStatement
+"
+{
+"What to do?"
+:
+"Time to get cracking."
+:
+"Roll up your sleeves."
+}
+"
+
+DATA WorkStatement2
+"
+{
+"#Player.Name# reckons it is best to:"
+:
+"#Player.Name# decides to:"
+:
+"#Player.Name# chooses to:"
+}
+"
+
+DATA WorkEventMorning1
+"
+Early morning. @WorkStatement@
+
+@WorkStatement2@
+"	
+
+DATA WorkEventMorning2
+"
+{"Late morning" : "There's still time before midday"}
+
+@WorkStatement2@
+"
+
+DATA WorkEventEvening1
+"
+Early evening. @WorkStatement@
+
+@WorkStatement2@
+"	
+
+DATA WorkEventEvening2
+"
+{"Late evening" : "There's still time before sunset."}
+
+@WorkStatement2@
+"
+
+//custom
+
+RULE WorkEventMorningDay2, WorkEvent
+Requirements
+	Time == 1
+	Day == 2
+Data
+	MorningEventDay2.3
+	
+RULE WorkEventMorningDay7, WorkEvent
+Requirements
+	Time == 1
+	Day == 7
+Data
+	WorkEventMorningDay7
+
+DATA WorkEventMorningDay7
+"
+Early morning. The appraisal report is due midday.
+
+#Player.Name chooses, after careful deliberation, to:
+"	
+	
+//midday events
+
+DATA MiddayEventDay2.1
+"
+#Player.Name meets #Friend.Name# at the great hall. Most of the monks eat at the long table in the middle, but #Friend.Name# has arranged the seldom used side table to be cleaned up for use. Or cleaned it up himself, the division of labour in this place is still unclear.
+"
+
+DATA MiddayEventDay2.2
+"
+Soup, spring water and more bread. Lovely.
+
+\"Well, what do you say of the study?\"
+"
+
+RULE MiddayEventDay2.2C1, MiddayEventDay2.2C1
+Requirements
+	CleanUpDone == false
+Data
+	MiddayEventDay2.2C1
+
+RULE MiddayEventDay2.2C2, MiddayEventDay2.2C2
+Requirements
+	CleanUpDone == false
+Data
+	MiddayEventDay2.2C2
+
+RULE MiddayEventDay2.2C3, MiddayEventDay2.2C3
+Requirements
+	CleanUpDone == true
+Data
+	MiddayEventDay2.2C3
+	
+DATA MiddayEventDay2.2C1
+"Seems, adequate..." //(no action)
+
+DATA MiddayEventDay2.2C2
+"Very messy." //(no action)
+
+DATA MiddayEventDay2.2C3
+"Very messy, but I cleaned it up." //(cleaned it up)
+
+DATA MiddayEventDay2.3
+"{ChoiceIndex == 0 ? "#Friend.Name puts on a questioning look, ": ""}\"And what about the contents of the room?\""
+
+RULE MiddayEventDay2.3C1, MiddayEventDay2.3C1
+Requirements
+	CleanUpDone == false
+Data
+	MiddayEventDay2.3C1
+
+RULE MiddayEventDay2.3C2, MiddayEventDay2.3C2
+Requirements
+	CleanUpDone == true
+Data
+	MiddayEventDay2.3C2
+	
+RULE MiddayEventDay2.3C3, MiddayEventDay2.3C3
+Requirements
+	CleanUpDone == false
+Data
+	MiddayEventDay2.3C3
+
+RULE MiddayEventDay2.3C4, MiddayEventDay2.3C4
+Requirements
+	InventoryDone == true
+Data
+	MiddayEventDay2.3C4
+	
+DATA MiddayEventDay2.3C1
+"Many valuable items."
+
+DATA MiddayEventDay2.3C1.1
+"I hope you are not jumping to conclusions there. I'll ask you later."
+
+DATA MiddayEventDay2.3C2
+"Eh.. Like a real treasure trove."
+
+DATA MiddayEventDay2.3C2.1
+"\"I hope so. The abbot will not like it if I waste his time with this appraisal business.\"
+"
+
+DATA MiddayEventDay2.3C3
+"To be honest, I had to rest so I haven't even started yet."
+
+DATA MiddayEventDay2.3C3.1
+"\"Understandable. Now that you are rested and well fed it is time for action then?\"
+
+Rested {CleanUpDone ? "no" : "yes"}, well fed {CleanUpDone ? "even " : ""}less so. Nonetheless he is right.
+"
+
+DATA MiddayEventDay2.3C4
+"Loads of items, that's for sure. Now that they are organized I can start the assessment proper."
+
+DATA MiddayEventDay2.3C4.1
+"\"Very good. A clean workspace is a requirement for a clear mind, thus effortless progress,\" #Friend.Name points out, as if reciting from memory."
+
+DATA MiddayEventDay2.4
+"
+#Friend.Name# has already finished his meal.
+
+\"I won't be joining you for dinner tomorrow unfortunately. I have my hands tied with the festival preparations. {ToldAboutFestival ? "Just a reminder: the" : "Yes, I forgot to mention it didn't I? The"} summer solstice festival occurs the day after tomorrow, right here at the monastery! I'm excited if you can't tell.\"
+
+#Player.Name nods, takes his time with the soup and heads back to the laboratory.
+"
+
+//day 3
+//one of the monks comes to talk about something?
+
+RULE MiddayEventDay3, MiddayEvent
+Requirements
+	Day == 3
+Data
+	MiddayEventDay3
+
+DATA MiddayEventDay3
+"
+#Player.Name# dines alone, pondering about the upcoming days.
+The soup tastes slightly different today. Maybe they used select herbs from the garden?
+
+Back to work.
+"	
+
+//day 6
+RULE MiddayEventDay6, MiddayEvent
+Data
+	MiddayEventDay6
+
+DATA MiddayEventDay6
+"
+#Player.Name# dines with #Friend.Name#.
+
+\"You are expected to finish the appraisal by midday tomorrow. How is the report coming up?\"
+"	
+RULE MiddayEventDay6C1, MiddayEventDay6C1
+Requirements
+AppraisalIndex == 0
+Data
+MiddayEventDay6C1
+
+RULE MiddayEventDay6C2, MiddayEventDay6C2
+Requirements
+AppraisalIndex == 0
+Data
+MiddayEventDay6C2
+
+RULE MiddayEventDay6C3, MiddayEventDay6C3
+Requirements
+AppraisalIndex > 0
+AppraisalIndex < 3
+Data
+MiddayEventDay6C3
+
+RULE MiddayEventDay6C4, MiddayEventDay6C4
+Requirements
+AppraisalIndex == 3
+Data
+MiddayEventDay6C4
+
+DATA MiddayEventDay6C1
+"Report?"
+
+DATA MiddayEventDay6C2
+"Fine, fine. Yes, the report is coming along just fine!"
+
+DATA MiddayEventDay6C3
+"Nearly finished."
+
+DATA MiddayEventDay6C4
+"Already finished!"
+
+DATA MiddayEventDay6C1.1
+"#Friend.Name# turns pale, \"You haven't even started? Get on it immediately, you don't have a lot of time.
+I mean it, go now!\"
+
+#Player.Name left double time.
+"
+
+DATA MiddayEventDay6C2.1
+"
+\"Good! That is what I wanted to hear.\"
+
+Phew.
+
+#Player.Name finishes the meal in nervous silence and hurries back to work.
+"
+
+DATA MiddayEventDay6C3.1
+"\"Good to hear. I had gotten worried over the past few days\"
+
+#Player.Name finishes the meal and goes back to work.
+"
+
+DATA MiddayEventDay6C4.1
+"\"What a relief! One less thing to worry about\", #Player.Name# can see the burden falling off #Friend.Name#'s shoulders.
+
+#Player.Name finishes the meal and goes back to work.
+"
+
+//generic
+RULE MiddayEventGeneric, MiddayEvent
+Data
+	MiddayEventGeneric
+
+DATA MiddayEventGeneric
+"
+#Player.Name# ate dinner with #Friend.Name#, reminiscing about the past, speculating about the future.
+{"\nSoup, would you have guessed?" : "\nGruel this time, a turn for the worse."}
+
+Back to work.
+"
